@@ -1,28 +1,25 @@
 package main
 
 import (
-	Wallet "eth_wallet/wallet"
+	MuyuModule "eth_wallet/module_check"
 	"fmt"
-	"sync"
+	"time"
 )
 
-var wg sync.WaitGroup
-var num int
+var checked int
 
 func main() {
-	fmt.Print("请输入需要创建的钱包数量：")
-	_, err := fmt.Scanf("%d", &num)
-	if err != nil {
+	fmt.Println("Evm工具 v1.0.0 -by 木鱼.")
+	fmt.Println("请选择模块⬇️")
+	fmt.Printf("1.钱包模块\n2.暂未开发\n")
+	_, _ = fmt.Scanf("%d", &checked)
+
+	switch checked {
+	case 1:
+		MuyuModule.Create()
+	case 2:
+		fmt.Println("暂未开发,即将退出")
+		time.Sleep(2)
 		return
 	}
-
-	for i := 0; i < num; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			Wallet.CreateAds()
-		}()
-	}
-	wg.Wait()
-
 }

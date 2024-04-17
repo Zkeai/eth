@@ -4,6 +4,9 @@ golang基于官方go-ethereum编写的相关功能
 eth_wallet是用golang编写的有关于ethereum操作的库
 
 ## 包说明
+### module_check
+功能模块选择封装方法
+
 ### client
 客户端包
 
